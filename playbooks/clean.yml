@@ -4,21 +4,21 @@
   tasks:
     - name: Clean launch directory
       file:
-        path: "{{ ansible_env.HOME }}/launch"
+        path: "/data/launch"
         state: absent
       tags:
         - clean
 
     - name: Clean node directory
       file:
-        path: "{{ ansible_env.HOME }}/node"
+        path: "/data/node"
         state: absent
       tags:
         - clean
 
     - name: Clean Heimdall home directory
       file:
-        path: "{{ ansible_env.HOME }}/.heimdalld"
+        path: "/data/.heimdalld"
         state: absent
       tags:
         - heimdall
@@ -26,7 +26,7 @@
 
     - name: Clean Bor home directory
       file:
-        path: "{{ ansible_env.HOME }}/.bor"
+        path: "/data/.bor"
         state: absent
       tags:
         - bor

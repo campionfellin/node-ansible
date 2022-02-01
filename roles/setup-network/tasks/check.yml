@@ -3,7 +3,7 @@
 
 - name: Check if data directories exist
   stat:
-    path: "{{ ansible_env.HOME }}/.heimdalld"
+    path: "/data/.heimdalld"
   register: dir_to_check
 
 - fail:

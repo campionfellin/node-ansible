@@ -4,23 +4,23 @@
 - name: Cloning the Bor
   git:
     repo: "https://github.com/maticnetwork/bor.git"
-    dest: "{{ ansible_env.HOME }}/bor"
+    dest: "/data/bor"
     force: yes
     version: "{{ bor_branch }}"
 
 - name: Build Bor
-  command: chdir={{ ansible_env.HOME }}/bor make bor-all
+  command: chdir=/data/bor make bor-all
 
 - name: Creating symlink for bor
   file:
-    src: "{{ ansible_env.HOME }}/bor/build/bin/bor"
+    src: "/data/bor/build/bin/bor"
     dest: "/usr/bin/bor"
     state: link
   become: true
 
 - name: Creating symlink for bootnode
   file:
-    src: "{{ ansible_env.HOME }}/bor/build/bin/bootnode"
+    src: "/data/bor/build/bin/bootnode"
     dest: "/usr/bin/bootnode"
     state: link
   become: true
