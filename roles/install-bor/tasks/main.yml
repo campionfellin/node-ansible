@@ -13,14 +13,14 @@
 
 - name: Creating symlink for bor
   file:
-    src: "/data/bor/build/bin/bor"
+    src: "{{ ansible_env.HOME }}/bor/build/bin/bor"
     dest: "/usr/bin/bor"
     state: link
   become: true
 
 - name: Creating symlink for bootnode
   file:
-    src: "/data/bor/build/bin/bootnode"
+    src: "{{ ansible_env.HOME }}/bor/build/bin/bootnode"
     dest: "/usr/bin/bootnode"
     state: link
   become: true

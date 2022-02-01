@@ -13,21 +13,21 @@
 
 - name: Creating symlink for heimdalld
   file:
-    src: "/data/go/bin/heimdalld"
+    src: "{{ ansible_env.HOME }}/go/bin/heimdalld"
     dest: "/usr/bin/heimdalld"
     state: link
   become: true
 
 - name: Creating symlink for heimdallcli
   file:
-    src: "/data/go/bin/heimdallcli"
+    src: "{{ ansible_env.HOME }}/go/bin/heimdallcli"
     dest: "/usr/bin/heimdallcli"
     state: link
   become: true
 
 - name: Creating symlink for bridge
   file:
-    src: "/data/go/bin/bridge"
+    src: "{{ ansible_env.HOME }}/go/bin/bridge"
     dest: "/usr/bin/bridge"
     state: link
   become: true
