@@ -19,13 +19,13 @@
     - heimdall
 
 - name: Setup Bor
-  command: "chdir={{ ansible_env.HOME }}/node/bor {{ item }}"
+  command: "chdir=/data/node/bor {{ item }}"
   with_items:
     - bash setup.sh
   tags:
     - bor
 
 - name: Generate service files
-  command: "chdir={{ ansible_env.HOME }}/launch/{{ network_version }} {{ item }}"
+  command: "chdir=/data/launch/{{ network_version }} {{ item }}"
   with_items:
     - bash service.sh
