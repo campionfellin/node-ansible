@@ -12,27 +12,27 @@
 
 - name: Remove old go bin directory
   file:
-    path: "/data/.go"
+    path: "{{ ansible_env.HOME }}/.go"
     state: absent
 
 - name: Download go installer
   get_url:
     url: https://gist.githubusercontent.com/ssandeep/a6c7197811c83c71e5fead841bab396c/raw/5866fbd95fe3d9eae7bae08a842240d2edbe489e/go-install.sh
-    dest: "/data/go-install.sh"
+    dest: "{{ ansible_env.HOME }}/go-install.sh"
 
 - name: Execute the go-install.sh
   command: "bash go-install.sh"
   args:
-    chdir: "/data"
+    chdir: "{{ ansible_env.HOME }}"
 
 - name: Remove the go-install.sh
   file:
-    path: "/data/go-install.sh"
+    path: "{{ ansible_env.HOME }}/go-install.sh"
     state: absent
 
 - name: Creating symlink for golang
   file:
-    src: "/data/.go/bin/go"
+    src: "{{ ansible_env.HOME }}/.go/bin/go"
     dest: "/usr/bin/go"
     state: link
   become: true
