@@ -4,7 +4,7 @@
 - name: Cloning the Bor
   git:
     repo: "https://github.com/maticnetwork/bor.git"
-    dest: "/data/bor"
+    dest: "{{ ansible_env.HOME }}/bor"
     force: yes
     version: "{{ bor_branch }}"
 
