@@ -4,7 +4,7 @@
 - name: Clone the Heimdall
   git:
     repo: "https://github.com/maticnetwork/heimdall.git"
-    dest: "/data/heimdall"
+    dest: "{{ ansible_env.HOME }}/heimdall"
     force: yes
     version: "{{ heimdall_branch }}"
 
