@@ -12,7 +12,7 @@
   command: cp -rf {{ ansible_env.HOME }}/launch/{{ network_version }}/{{ node_type }} /data/node
 
 - name: Setup Heidmall
-  command: "chdir={{ ansible_env.HOME }}/node/heimdall {{ item }}"
+  command: "chdir=/data/node/heimdall {{ item }}"
   with_items:
     - bash setup.sh
   tags:
